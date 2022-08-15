@@ -2,6 +2,23 @@
 use MyApp\query\Ejecuta;
 use MyApp\data\database;
 
+        session_start();
+        if (!isset($_SESSION["admin"])) 
+        {
+           echo "<div class='alert alert-warning'> 
+           <h2 align='center'> No eres admin, usuario:".$_SESSION["usuario"]."</h2>";
+
+           echo "<h3 algin='center'>
+           <a href='cerrar.php'>[Cerrar Sesion]</a></h3>
+           </div>";
+           echo "<h3 algin='center'>
+           <a href='../indix.php'>[Inicio]</a></h3>
+           </div>";
+        }
+        else
+        {
+?>
+<?php
 
 if (!empty($_POST["btnmodifcar"])) 
 {
@@ -33,7 +50,7 @@ if (!empty($_POST["btnmodifcar"]))
         $consulta = $queryM->ejecuta($update);
         if ($consulta==1)
         {
-            header("Location: /integradora/BZ_Shop/views/Modificar.php");
+            header("Location: ../Modificar.php");
         }
         else
         {
@@ -44,5 +61,8 @@ if (!empty($_POST["btnmodifcar"]))
     {
         echo "<div class='alert alert-warning'> Campos vacios </div>";   
     }
+}
+?>
+<?php 
 }
 ?>

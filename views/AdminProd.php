@@ -49,6 +49,24 @@
     </style>
   </head>
   <body>
+  <?php
+
+session_start();
+if (!isset($_SESSION["admin"])) 
+{
+   echo "<div class='alert alert-warning'> 
+   <h2 align='center'> No eres admin, usuario:".$_SESSION["usuario"]."</h2>";
+
+   echo "<h3 algin='center'>
+   <a href='scripts/cerrar.php'>[Cerrar Sesion]</a></h3>
+   </div>";
+   echo "<h3 algin='center'>
+   <a href='../indix.php'>[Inicio]</a></h3>
+   </div>";
+}
+else
+{
+?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="#">Administrar Productos</a>
               <a class="nav-link clr-blanco" href="../index.php">Inicio</a>
@@ -61,7 +79,7 @@
                 <a href="../views/AgregarProductos.php" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Añadir productos</h5>
-                        <small><img src="../src/img/moda.png" alt="" width="20px"></small>
+                        <small><img src="../src/paginaimg/moda.png" alt="" width="20px"></small>
                     </div>
                     <p class="mb-1">Click aqui para añadir productos a la tienda</p>
                     <small></small>
@@ -69,7 +87,7 @@
                 <a href="Modificar.php" class="list-group-item list-group-item-action flex-column align-items-start ">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Modificar Productos</h5>
-                        <small><img src="../src/img/editar.png" alt="" width="20px"></small>
+                        <small><img src="../src/paginaimg/editar.png" alt="" width="20px"></small>
                     </div>
                     <p class="mb-1">Click aqui para modificar productos ya existentes en la tienda</p>
                     <small></small>
@@ -83,7 +101,9 @@
     </div>
     
 
-    
+    <?php
+        }
+    ?>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 
