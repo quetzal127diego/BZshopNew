@@ -146,7 +146,7 @@
         </li>
         <!-- botones del user-->
         <li class='nav-item'>
-          <a class='nav-link active' aria-current='page' href='/views/FormLogin.php'>Login</a>
+          <a class='nav-link active' aria-current='page' href='views/FormLogin.php'>Login</a>
           </li>
         <?php 
               use MyApp\Query\Select;
