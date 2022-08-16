@@ -146,7 +146,7 @@
         </li>
         <!-- botones del user-->
         <li class='nav-item'>
-          <a class='nav-link active' aria-current='page' href='index.php'>Login</a>
+          <a class='nav-link active' aria-current='page' href='/views/FormLogin.php'>Login</a>
           </li>
         <?php 
               use MyApp\Query\Select;
@@ -190,6 +190,41 @@
   </div>
 </nav>
 
+<?php
+$query = new Select();
+
+$cadena = "SELECT imagen,nombre,precio,exitencia,prenda FROM productos JOIN categoria_prenda on 
+productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0";
+
+$card = $query->seleccionar($cadena);
+?>
+
+<div class="title-cards">
+<h2 class="titulo">Algunos de Nuestros Productos</h2>
+</div>
+
+<div class="row">
+<?php
+foreach ($card as $registros){
+?>
+<div class="container-card col-lg-4">
+<div class="card card_t">
+<figure class='sizeimg'>
+<?php echo "<img src='views/scripts/$registros->imagen'>";?>
+</figure>
+<div class="contenido-card">
+<h3><?php echo $registros->nombre?></h3>
+<p><?php echo $registros->precio?></p>
+<p><?php echo $registros->exitencia?></p>
+<p><?php echo $registros->prenda?></p>
+<a href="#">Ver Producto</a>
+<a href="#">Agregar al carrito</a>
+</div>
+</div>
+</div>
+<?php
+}
+?>
 
 <!-- inicio del usuario-->
 
