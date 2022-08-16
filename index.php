@@ -88,13 +88,6 @@
                 $like = $value->prenda;
               }
               echo "</select>";
-
-              $buscador = $_POST['categoria_prenda'];
-              if ($buscador = true) 
-              {
-                echo "<h1> hola </h1>";
-              }
-
             ?>
 
             <!-- botones del admin-->
@@ -124,7 +117,7 @@
 $query = new Select();
 
 $cadena = "SELECT imagen,nombre,precio,exitencia,prenda FROM productos JOIN categoria_prenda on 
-productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0";
+productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0 OR categoria_prenda LIKE '$buscador'";
 
 $card = $query->seleccionar($cadena);
 ?>
