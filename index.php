@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>BZshop</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,6 +50,86 @@
         margin-top: 2px;
 
     }
+
+    /*Cards*/
+    .container-card{
+      width: 100%;
+      display: flex;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .title-cards{
+      width: 100%;
+      max-width: 1080px;
+      margin: auto;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+      color: #7a7a7a;
+    }
+    .card{
+      width: 100%;
+      margin: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+      background:#fff;
+      box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+      transition: all 400ms ease-out;
+      cursor: default;
+    }
+    .card:hover{
+      box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+      transform: translateY(-3%);
+    }
+    .card img{
+      width: 100%;
+      height: 210px;
+    }
+    .card .contenido-card{
+      padding: 15px;
+      text-align: center;
+    }
+    .card .contenido-card h3{
+      margin-bottom: 15px;
+      color: #7a7a7a;
+    }
+    .card .contenido-card p{
+      line-height: 1.8;
+      color: #6a6a6a;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .card .contenido-card a{
+      display: inline-block;
+      padding: 10px;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #2fb4cc;
+      border: 1px solid #2fb4cc;
+      border-radius: 4px;
+      transition: all 400ms ease;
+      margin-bottom: 5px;
+    }
+    .card .contenido-card a:hover{
+      background: #2fb4cc;
+      color: #fff;
+    }
+    @media only screen and (min-width:320px) and (max-width:768px){
+      .container-card
+        {
+        Width: 100%;
+            Display: Flex;
+            Max-width: 1100px;
+            flex-wrap: wrap;
+      }
+      .card{
+        margin: 15px;
+      }
+      .card_t
+      {
+        background: transparent;
+      }
+    }
     </style>
   </head>
   <body>
@@ -65,14 +145,9 @@
           <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
         </li>
         <!-- botones del user-->
-        <?php session_start();
-        if(!isset($_SESSION["usuario"]))
-        {
-          echo " <li class='nav-item'>";
-          echo "<a class='nav-link active' aria-current='page' href='index.php'>Login</a>";
-          echo "</li>";
-        }
-        ?>
+        <li class='nav-item'>
+          <a class='nav-link active' aria-current='page' href='index.php'>Login</a>
+          </li>
         <?php 
               use MyApp\Query\Select;
               require("../BZ_Shop/vendor/autoload.php");
@@ -87,28 +162,24 @@
               foreach($reg as $value)
               {
                 echo "<option class='dropdown-item' value='".$value->cve_pcat."'>".$value->prenda."</option> ";
+                $like = $value->prenda;
               }
               echo "</select>";
             ?>
 
             <!-- botones del admin-->
-            <?php session_start();
-              if(isset($_SESSION["admin"]))
-              {
-                 echo " <li class='nav-item dropdown'> ";
-                 echo " <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+            <li class='nav-item dropdown'> 
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Administrar
                     </a> 
-                    <ul class='dropdown-menu bg-dark ' aria-labelledby='navbarDropdown'>
-                    <li><a class='dropdown-item clr-blanco' href='views/AdminProd.php'>Administrar Productos</a></li>
-                      <li><hr class='dropdown-divider'></li>
-                      <li><a class='dropdown-item clr-blanco' href='views/Ventas.php'>Registros de Venta</a></li>
-                      <li><hr class='dropdown-divider'></li>
-                      <li><a class='dropdown-item clr-blanco' href='views/Clientes.php'>Clientes Registrados</a></li>
+                    <ul class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item clr-blanco" href="views/AdminProd.php">Administrar Productos</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item clr-blanco" href="views/Ventas.php">Registros de Venta</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item clr-blanco" href="views/Clientes.php">Clientes Registrados</a></li>
                     </ul>
-                  </li>";
-              } 
-            ?>
+                  </li>
             
       </ul>
       <form class="d-flex">
@@ -118,27 +189,85 @@
     </div>
   </div>
 </nav>
-<!-- inicio del usuario-->
+<!-- cards miguel -->
+<?php
+      if($buscador = $like)
+      {
+        $query = new Select();
+
+        $cadena = "SELECT imagen,nombre,precio,exitencia,prenda FROM productos JOIN categoria_prenda on 
+        productos.categoria_prenda= categoria_prenda.cve_pcat WHERE prenda LIKE '$buscador'";
+
+        $card = $query->seleccionar($cadena);
+      
+    ?>
+
+    <div class="title-cards">
+		<h2 class="titulo">Algunos de Nuestros Productos</h2>
+	</div>
+  
+  <div class="row">
+  <?php
+  foreach ($card as $registros){
+  ?>
+<div class="container-card col-lg-4">
+<div class="card card_t">
+	<figure class='sizeimg'>
+		<?php echo "<img src='views/scripts/$registros->imagen'>";?>
+	</figure>
+	<div class="contenido-card">
+		<h3><?php echo $registros->nombre?></h3>
+		<p><?php echo $registros->precio?></p>
+    <p><?php echo $registros->exitencia?></p>
+    <p><?php echo $registros->prenda?></p>
+		<a href="#">Ver Producto</a>
+    <a href="#">Agregar al carrito</a>
+	</div>
+  </div>
+</div>
 <?php 
-session_start();
-        if(isset($_SESSION["usuario"]))
-        {
-          echo "<h5 align='center'> Usuario: ".$_SESSION["usuario"]."</h5>";
-          echo "<h6 align='center'> 
-          <a href='/MiProyecto/views/scripts/cerrar.php'>[Cerrar Sesion]</a>
-          </h6>";
-        } 
+   }
+ }
+ else
+ {
+  $query = new Select();
+
+        $cadena = "SELECT imagen,nombre,precio,exitencia,prenda FROM productos JOIN categoria_prenda on 
+        productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0";
+
+        $card = $query->seleccionar($cadena);
   ?>
-  <?php 
-  session_start();
-              if(isset($_SESSION["admin"]))
-              {
-                echo "<h5 align='center'> Usuario: ".$_SESSION["admin"]."</h5>";
-                echo "<h6 align='center'> 
-                <a href='/MiProyecto/views/scripts/cerrar.php'>[Cerrar Sesion]</a>
-                </h6>";
-              } 
+
+ <div class="title-cards">
+		<h2 class="titulo">Algunos de Nuestros Productos</h2>
+	</div>
+  
+  <div class="row">
+  <?php
+  foreach ($card as $registros){
   ?>
+<div class="container-card col-lg-4">
+<div class="card card_t">
+	<figure class='sizeimg'>
+		<?php echo "<img src='views/scripts/$registros->imagen'>";?>
+	</figure>
+	<div class="contenido-card">
+		<h3><?php echo $registros->nombre?></h3>
+		<p><?php echo $registros->precio?></p>
+    <p><?php echo $registros->exitencia?></p>
+    <p><?php echo $registros->prenda?></p>
+		<a href="#">Ver Producto</a>
+    <a href="#">Agregar al carrito</a>
+	</div>
+  </div>
+</div>
+<?php
+ }
+} 
+?>
+
+<!-- inicio del usuario-->
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 
