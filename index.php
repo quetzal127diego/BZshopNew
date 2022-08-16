@@ -146,7 +146,7 @@
         </li>
         <!-- botones del user-->
         <li class='nav-item'>
-          <a class='nav-link active' aria-current='page' href='/views/FormLogin.php'>Login</a>
+          <a class='nav-link active' aria-current='page' href='views/FormLogin.php'>Login</a>
           </li>
         <?php 
               use MyApp\Query\Select;
@@ -165,6 +165,13 @@
                 $like = $value->prenda;
               }
               echo "</select>";
+
+              $buscador = $_POST['categoria_prenda'];
+              if ($buscador = true) 
+              {
+                echo "<h1> hola </h1>";
+              }
+
             ?>
 
             <!-- botones del admin-->
