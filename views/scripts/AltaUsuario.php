@@ -59,7 +59,7 @@
               $id= $query -> seleccionar($consultaId);
               $id_per =  $id[0] -> id_persona; 
             
-              header("refresh:3; ../FormRegistroP2?id=$id_per.php");
+              header("refresh:3; ../FormRegistroP2.php?id=$id_per");
                                   
 
             }
