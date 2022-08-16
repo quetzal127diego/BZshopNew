@@ -150,7 +150,7 @@
           </li>
         <?php 
               use MyApp\Query\Select;
-              require("../BZ_Shop/vendor/autoload.php");
+              require("vendor/autoload.php");
               $queryS=new Select();
               $cadena="SELECT categoria_prenda.cve_pcat,categoria_prenda.prenda from categoria_prenda";
               $reg=$queryS->seleccionar($cadena);
