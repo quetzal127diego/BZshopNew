@@ -63,7 +63,7 @@ if (!isset($_SESSION["admin"]))
    <a href='scripts/cerrar.php'>[Cerrar Sesion]</a></h3>
    </div>";
    echo "<h3 algin='center'>
-   <a href='../indix.php'>[Inicio]</a></h3>
+   <a href='../index.php'>[Inicio]</a></h3>
    </div>";
 }
 else
