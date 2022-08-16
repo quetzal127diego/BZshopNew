@@ -49,16 +49,17 @@
       <div class="col-lg-8" >
         <div class="card-body py-5 px-md-5">
 
-          <?php 
-            $id_per = $_GET["id"];
-          ?>
+       
           <form method="post" action="scripts\AltaUsuario2.php">
             <h1 align="center">Registro</h1>
             <br>
           <h3 align="center">Paso 2</h3>
             <!-- Correo -->
             <div class="form-outline mb-4">
-                
+            <?php 
+            $id = $_GET["id"];
+            ?>  
+            <input type="hidden" name="id" value="<?=$id?>">
               <label class="form-label" for="correo">Correo Electronico</label>
               <input type="correo" name="correo"  class="form-control" placeholder="Escribe tu nombre"/>
             </div>
@@ -67,7 +68,7 @@
             <div class="form-outline mb-4">
                 
               <label class="form-label" for="apellidos">Contraseña</label>
-              <input type="text" name="contra" class="form-control" placeholder="Escribe tu contraseña"/>
+              <input type="password" name="contra" class="form-control" placeholder="Escribe tu contraseña"/>
             </div>
              <!-- Numero de telefono -->
              

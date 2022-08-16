@@ -58,7 +58,7 @@
               $consultaId="SELECT id_persona FROM persona where tel_celular = '$numero'";  
               $id= $query -> seleccionar($consultaId);
               $id_per =  $id[0] -> id_persona; 
-            
+              
               header("refresh:3; ../FormRegistroP2.php?id=$id_per");
                                   
 
