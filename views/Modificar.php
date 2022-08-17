@@ -54,7 +54,7 @@
 
 use MyApp\Query\Select;
 session_start();
-if (!isset($_SESSION["correo"])) 
+if (isset($_SESSION["correo"])) 
 {
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
@@ -103,7 +103,8 @@ if (!isset($_SESSION["correo"]))
                     FROM productos
                     INNER JOIN categoria ON productos.categoria = categoria.cve_cat
                     INNER JOIN categoria_prenda ON productos.categoria_prenda = categoria_prenda.cve_pcat
-                    INNER JOIN genero ON productos.genero = genero.cve_gen WHERE (productos.cve_prod LIKE '%$busqueda%'
+                    INNER JOIN genero ON productos.genero = genero.cve_gen WHERE 
+                    productos.exitencia>0 and (productos.cve_prod LIKE '%$busqueda%'
                     OR productos.nombre LIKE '%$busqueda%'
                     OR productos.precio LIKE '%$busqueda'
                     OR productos.exitencia LIKE '%$busqueda%'
@@ -140,7 +141,7 @@ if (!isset($_SESSION["correo"]))
                     
                     echo "<tr>";
                     echo "<td> $registros->cve_prod</td>";
-                    echo "<td><img src='<?=../views/scripts/$registros->imagen?>'></td>";
+                    echo "<td><img src='/scripts/$registros->imagen?>'></td>";
                     echo "<td> $registros->nombre </td>";
                     echo "<td> $registros->precio </td>";
                     echo "<td> $registros->exitencia </td>";
@@ -179,7 +180,7 @@ if (!isset($_SESSION["correo"]))
                   FROM productos
                   INNER JOIN categoria ON productos.categoria = categoria.cve_cat
                   INNER JOIN categoria_prenda ON productos.categoria_prenda = categoria_prenda.cve_pcat
-                  INNER JOIN genero ON productos.genero = genero.cve_gen";
+                  INNER JOIN genero ON productos.genero = genero.cve_gen where productos.exitencia>0";
 
                 $tabla = $query->seleccionar($cadena);
 

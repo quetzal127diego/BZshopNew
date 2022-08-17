@@ -72,8 +72,9 @@ use MyApp\Query\Select;
   </nav>
 
     <?php
+    $producto=$_GET["id"];
    session_start();
-   if (!isset($_SESSION["correo"])) 
+   if (isset($_SESSION["correo"])) 
    {
     ?>
 <div class="row">

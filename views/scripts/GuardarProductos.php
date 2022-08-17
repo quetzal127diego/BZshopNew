@@ -15,7 +15,7 @@
   <?php
   use MyApp\Query\Ejecuta;
   session_start();
-  if (!isset($_SESSION["correo"])) 
+  if (isset($_SESSION["correo"])) 
   {
   ?>
   <?php 

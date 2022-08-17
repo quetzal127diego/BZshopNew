@@ -125,10 +125,9 @@
                 }
             ?>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+      <li class="nav-item">
+          <p class="nav-link active" aria-current="page">Bienvenido</p>
+        </li>
     </div>
   </div>
 </nav>
@@ -153,7 +152,7 @@ foreach ($card as $registros){
 <div class="container-card col-lg-4">
 <div class="card card_t">
 <figure class='sizeimg'>
-<?php echo "<img src='/scripts/$registros->imagen'>";?>
+<?php echo "<img src='scripts/$registros->imagen'>";?>
 </figure>
 <div class="contenido-card">
 <h3><?php echo $registros->nombre?></h3>
