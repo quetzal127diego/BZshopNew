@@ -54,7 +54,7 @@
 
 use MyApp\Query\Select;
 session_start();
-if (!isset($_SESSION["correo"])) 
+if (isset($_SESSION["correo"])) 
 {
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">

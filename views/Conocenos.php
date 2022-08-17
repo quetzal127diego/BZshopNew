@@ -46,21 +46,34 @@
     </style>
   </head>
   <body>
- <br><br><br><br><br><br>
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">BZ shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="indice.php">Inicio</a>
+  </ul>
+  </nav>
+  </div>
+ <br><br><br>
   <div id="carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
-            <img src="scripts/img/7164785154.webp" class="d-block w-100" alt="">
+            <img src="scripts/img/bazar1.jpg" class="d-block w-100" alt="">
           </div>
           
  
           <div class="carousel-item" data-bs-interval="3000">
-            <img src="scripts/img/94c4814b4bba54270bcd642224d12da6.jfif" class="d-block w-100" alt="...">
+            <img src="scripts/img/bazar2.jpg" class="d-block w-100" alt="...">
           </div>
  
 
           <div class="carousel-item" data-bs-interval="3000">
-            <img src="scripts/img/b39e600e97faaf21d30aba9f58d07402.jfif" class="d-block w-100" alt="...">
+            <img src="scripts/img/bazar3.jpg" class="d-block w-100" alt="...">
           </div>
  
  
@@ -78,7 +91,15 @@
       <section class="d-flex flex-column justify-content-center align-items-center pt-5  text-center w-50 m-auto" id="intro">
     <h1 class="p-3 fs-2 border-top border-3"><span class="text-primary">BZshop</span></h1>
      <p class="p-3  fs-4">
-         <span class="text-primary">BZshop</span> Es tu bazar de ropa donde podras encontrar de todo a un precio increible
+         <span class="text-primary">BZshop</span> Es tu bazar de ropa donde podras encontrar de todo a un precio increible       
+         <br><br><br><br>
+         Para hacer tu pedido deberas hacer los siguientes pasos: <br><br>
+         <span class="text-primary">Paso 1: Una ves obtenido tu ticket despues de las compras</span>
+         <br><br>
+         <span class="text-primary">Paso 2: El metodo de pago sera por retiro en: </span>
+         <br><br>
+         <span class="text-primary">Paso 3: Mostrar el ticket al cliente</span>
+         
         </p>   
     </section>
 
