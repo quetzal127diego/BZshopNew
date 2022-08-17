@@ -3,8 +3,11 @@
 ?>
 <?php
           session_start();
-          if (!isset($_SESSION["correo"])) 
+          if (isset($_SESSION["correo"])) 
           {
+
+            extract($_POST);
+            $ROL = $_GET['rol'];
           ?>
           <!doctype html>
 <html lang="en">
