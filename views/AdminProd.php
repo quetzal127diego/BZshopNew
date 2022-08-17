@@ -51,25 +51,9 @@
   <body>
   <?php
 
-<<<<<<< HEAD
-/* session_start();
-if (!isset($_SESSION["admin"])) 
-=======
 session_start();
-$ROL = $_GET['rol'];
-if ($ROL == 1) 
->>>>>>> b1f9b05abe644f2745728c647a7605657070f773
+if (!isset($_SESSION["correo"])) 
 {
-    header("refresh:2 alert.php");
-  
-}
-<<<<<<< HEAD
-else
-{ */
-=======
-else if ($ROL == 0)
-{
->>>>>>> b1f9b05abe644f2745728c647a7605657070f773
 ?>
 
             <nav class="nav justify-content-center navbar-dark bg-dark ">
@@ -82,7 +66,7 @@ else if ($ROL == 0)
                 <br><br>
                 <hr>
                 <?php
-                echo "<a href='../views/AgregarProductos.php?rol=$ROL' class='list-group-item list-group-item-action flex-column align-items-start'>";
+                echo "<a href='../views/AgregarProductos.php' class='list-group-item list-group-item-action flex-column align-items-start'>";
                 ?>
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Añadir productos</h5>
@@ -92,7 +76,7 @@ else if ($ROL == 0)
                     <small></small>
                 </a>
                 <?php
-                echo "<a href='Modificar.php?rol=$ROL' class='list-group-item list-group-item-action flex-column align-items-start'>";
+                echo "<a href='Modificar.php' class='list-group-item list-group-item-action flex-column align-items-start'>";
                 ?>
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Modificar Productos</h5>
@@ -119,8 +103,8 @@ else if ($ROL == 0)
     
 
     <?php
-/*         }
- */    ?>
+             }
+     ?>
     
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

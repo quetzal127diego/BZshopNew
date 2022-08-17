@@ -53,7 +53,6 @@
   <?php
 
 use MyApp\Query\Select;
-<<<<<<< HEAD
 /* session_start();
 if (!isset($_SESSION["admin"])) 
 {
@@ -69,8 +68,6 @@ if (!isset($_SESSION["admin"]))
 }
 else
 { */
-=======
->>>>>>> b1f9b05abe644f2745728c647a7605657070f773
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="#">Agregar Productos</a>

@@ -62,17 +62,27 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="">Inicio</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Conocenos.php">Conocenos</a>
+        </li>
         <!-- botones del user-->
         <?php
           session_start();
           $ROL = $_GET['rol'];
-          if ($ROL == 1) 
+          if (!$ROL == 1) 
           {
           ?>
             <li class='nav-item'>
             <a class='nav-link active' aria-current='page' href='views/FormLogin.php'>Login</a>
             </li>
         <?php
+          }
+          else
+          {?>
+            <li class='nav-item'>
+            <a class='nav-link active' aria-current='page' href='scripts/cerrar.php'>Cerrar</a>
+            </li>
+          <?php
           }
         ?>
         <?php 
@@ -102,11 +112,11 @@
                     Administrar
                     </a> 
                     <ul class='dropdown-menu bg-dark ' aria-labelledby='navbarDropdown'>
-                    <li><a class='dropdown-item clr-blanco' href='AdminProd.php?rol=$ROL'>Administrar Productos</a></li>
+                    <li><a class='dropdown-item clr-blanco' href='AdminProd.php'>Administrar Productos</a></li>
                       <li><hr class='dropdown-divider'></li>
-                      <li><a class='dropdown-item clr-blanco' href='AdminVenta.php?rol=$ROL'>Registros de Venta</a></li>
+                      <li><a class='dropdown-item clr-blanco' href='AdminVenta.php'>Registros de Venta</a></li>
                       <li><hr class='dropdown-divider'></li>
-                      <li><a class='dropdown-item clr-blanco' href='AdminClientes.php?rol=$ROL'>Clientes Registrados</a></li>
+                      <li><a class='dropdown-item clr-blanco' href='AdminClientes.php'>Clientes Registrados</a></li>
                     </ul>";
              echo "</li>";
                 }

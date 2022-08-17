@@ -49,30 +49,6 @@
                   <img src="src/img/LogoBZshopXS.jpg"
                     style="width: 185px;" alt="logo">
                 </div>
-
-<<<<<<< HEAD
-            <!-- botones del admin-->
-            <li class='nav-item dropdown'> 
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Administrar
-                    </a> 
-                    <ul class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item clr-blanco" href="views/AdminProd.php">Administrar Productos</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item clr-blanco" href="views/Ventas.php">Registros de Venta</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item clr-blanco" href="views/Clientes.php">Clientes Registrados</a></li>
-                      <li><hr><a class="dropdown-item clr-blanco" href="views/AdminProd.php">Reporte de Ventas</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                    </ul>
-                  </li>
-            
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Buscar</button>
-      </form>
-=======
                 <form action="views/scripts/verificalogin.php" method="post">
                   <p>Escribe tus datos</p>
 
@@ -111,7 +87,6 @@
           </div>
         </div>
       </div>
->>>>>>> b1f9b05abe644f2745728c647a7605657070f773
     </div>
   </div>
 </section>

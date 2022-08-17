@@ -45,7 +45,7 @@ class Login
                 echo "<div class='alert alert-danger'>";
                 echo"<h2 align='center'> Usuario o password incorrecto</h2>";
                 echo "</div>";
-                header("refresh:2 ../../views/FormLogin.php");
+                header("refresh:2 ../../index.php");
             }
         }
         catch(PDOException $e)

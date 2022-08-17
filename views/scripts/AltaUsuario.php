@@ -25,14 +25,6 @@
     $apellidos=$_POST['apellidos'];
     $numero = $_POST['numero'];
 
-    session_start();
-$ROL = $_GET['rol'];
-if ($ROL == NULL) 
-{
-    header("refresh:2 ../../index.php");
-  
-}
-
     /*Insersion de datos del formulario paso 1*/
     try 
     {          

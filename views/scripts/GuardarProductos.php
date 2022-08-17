@@ -15,12 +15,8 @@
   <?php
   use MyApp\Query\Ejecuta;
   session_start();
-  $ROL = $_GET['rol'];
-  if ($ROL == NULL) 
+  if (!isset($_SESSION["correo"])) 
   {
-    header("refresh:2 ../../index.php");
-    
-  }
   ?>
   <?php 
     
@@ -42,6 +38,7 @@
 
     echo "<div class='alert alert-success'>Producto Registrado</div>";
     header("refresh:3; ../AdminProd.php");
+  }
 ?>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
