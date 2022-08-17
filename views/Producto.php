@@ -73,6 +73,7 @@ use MyApp\Query\Select;
 
 
     <?php
+    if (isset($_SESSION))
         $producto=$_GET["id"];
     ?>
 <div class="row">
@@ -119,10 +120,6 @@ $categoria = $registros[0]->nom_cat;
             </tr>
         </tbody>
     </table>
-    
-        
-        
-        
         <button type="submit" class="btn btn-primary">Solicitar Prenda</button>
 </div>
     
