@@ -1,4 +1,13 @@
-<!doctype html>
+<?php
+    $cat = $_GET['categoria'];
+?>
+<?php
+          session_start();
+          $ROL = $_GET['rol'];
+          if ($ROL == 1) 
+          {
+          ?>
+          <!doctype html>
 <html lang="en">
   <head>
     <title>BZshop</title>
@@ -60,15 +69,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="indice.php?rol=<?=$ROL?>">Inicio</a>
        
         <!-- botones del user-->
-        <?php
-          session_start();
-          $ROL = $_GET['rol'];
-          if ($ROL == 1) 
-          {
-          ?>
+        
         <?php
           }
         ?>
@@ -95,7 +99,7 @@
               echo "</ul>";
               echo "</li> ";
             ?>
-            <?php 
+            <?php
                 if ($ROL == 0) 
                 {
             
@@ -126,7 +130,7 @@
 $query = new Select();
 
 $cadena = "SELECT cve_prod,imagen,nombre,precio,exitencia,prenda FROM productos JOIN categoria_prenda on 
-productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0";
+productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0 and categoria_prenda.cve_pcat=$cat";
 
 $card = $query->seleccionar($cadena);
 ?>
@@ -149,7 +153,7 @@ foreach ($card as $registros){
 <p><?php echo "$". $registros->precio?></p>
 <p><?php echo "Existencia: " . $registros->exitencia?></p>
 <p><?php echo "Categoria: " .  $registros->prenda?></p>
-<a href="Producto.php?id=<?php echo $registros->cve_prod?>">Ver Producto</a>
+<a href="Producto.php?id=<?php echo $registros->cve_prod?>&rol=<?=$ROL?>">Ver Producto</a>
 </div>
 </div>
 </div>

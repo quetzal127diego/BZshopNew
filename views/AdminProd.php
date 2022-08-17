@@ -51,7 +51,7 @@
   <body>
   <?php
 
-<<<<<<< HEAD
+
 /* session_start();
 if (!isset($_SESSION["admin"])) 
 =======
@@ -63,13 +63,12 @@ if ($ROL == 1)
     header("refresh:2 alert.php");
   
 }
-<<<<<<< HEAD
+
 else
-{ */
-=======
+{ *
+
 else if ($ROL == 0)
-{
->>>>>>> b1f9b05abe644f2745728c647a7605657070f773
+{*/
 ?>
 
             <nav class="nav justify-content-center navbar-dark bg-dark ">
