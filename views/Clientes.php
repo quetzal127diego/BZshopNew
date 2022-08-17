@@ -50,6 +50,14 @@
     </style>
   </head>
   <body>
+  <?php
+  
+  use MyApp\Query\Select;
+  use MyApp\data\database;
+  session_start();
+  if (!isset($_SESSION["correo"])) 
+  {
+  ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link clr-blanco" href="">Regresar</a>
               
@@ -67,8 +75,6 @@
                 <button class="btn btn-outline-success" name="enviar" type="submit">Buscar</button>
               </form>
               <?php
-                use MyApp\Query\Select;
-                use MyApp\data\database;
 
                 if (isset($_GET['enviar'])) 
                 {
@@ -180,6 +186,9 @@
                 ?>              
                 </div>
             </div>
+            <?php
+            }
+            ?>
                 
               <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

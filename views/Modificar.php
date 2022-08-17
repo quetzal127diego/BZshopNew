@@ -53,26 +53,9 @@
   <?php
 
 use MyApp\Query\Select;
-<<<<<<< HEAD
 session_start();
-if (!isset($_SESSION["admin"])) 
+if (!isset($_SESSION["correo"])) 
 {
-   echo "<div class='alert alert-warning'> 
-   <h2 align='center'> No eres admin, usuario:".$_SESSION["usuario"]."</h2>";
-
-   echo "<h3 algin='center'>
-   <a href='scripts/cerrar.php'>[Cerrar Sesion]</a></h3>
-   </div>";
-   echo "<h3 algin='center'>
-   <a href='../indix.php'>[Inicio]</a></h3>
-   </div>";
-}
-else
-{ 
-=======
-extract($_POST);
-$ROL = $_GET['rol'];
->>>>>>> b1f9b05abe644f2745728c647a7605657070f773
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="">Modificar Producto</a>
@@ -132,8 +115,7 @@ $ROL = $_GET['rol'];
                     OR genero.genero LIKE '%$busqueda%')";
 
                   $tabla = $query->seleccionar($cadena);
-
-                  foreach 
+ 
                   echo 
                   "<table class='table table-hover align='left'>
                   <thead class='table-dark'>
@@ -201,7 +183,6 @@ $ROL = $_GET['rol'];
 
                 $tabla = $query->seleccionar($cadena);
 
-                foreach 
                 echo "<table class='table table-hover align='left'>
                 <thead class='table-dark'>
                 <tr>
@@ -244,7 +225,7 @@ $ROL = $_GET['rol'];
                 </table>";
               }
 
-                  
+            }
                 ?>              
                 </div>
             </div>

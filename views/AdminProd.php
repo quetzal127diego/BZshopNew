@@ -50,20 +50,8 @@
   </head>
   <body>
   <?php
-
-
 session_start();
-if (!isset($_SESSION["admin@gmail.com"])) 
-
-$ROL = $_GET['rol'];
-if ($ROL == 1) 
-{
-    header("refresh:2 alert.php");
-  
-}
-
-
-else if ($ROL == 0)
+if (!isset($_SESSION["correo"])) 
 {
 ?>
 
@@ -77,7 +65,7 @@ else if ($ROL == 0)
                 <br><br>
                 <hr>
                 <?php
-                echo "<a href='../views/AgregarProductos.php?rol=$ROL' class='list-group-item list-group-item-action flex-column align-items-start'>";
+                echo "<a href='../views/AgregarProductos.php' class='list-group-item list-group-item-action flex-column align-items-start'>";
                 ?>
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Añadir productos</h5>
@@ -87,7 +75,7 @@ else if ($ROL == 0)
                     <small></small>
                 </a>
                 <?php
-                echo "<a href='Modificar.php?rol=$ROL' class='list-group-item list-group-item-action flex-column align-items-start'>";
+                echo "<a href='Modificar.php' class='list-group-item list-group-item-action flex-column align-items-start'>";
                 ?>
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">Modificar Productos</h5>
@@ -114,8 +102,8 @@ else if ($ROL == 0)
     
 
     <?php
-        }
-    ?>
+             }
+     ?>
     
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

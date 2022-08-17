@@ -54,13 +54,7 @@
 
 use MyApp\Query\Select;
 session_start();
-$ROL = $_GET['rol'];
-if ($ROL == 1) 
-{
-    header("refresh:2 alert.php");
-  
-}
-else if ($ROL == 0)
+if (!isset($_SESSION["correo"])) 
 {
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">

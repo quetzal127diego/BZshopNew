@@ -3,8 +3,7 @@
 ?>
 <?php
           session_start();
-          $ROL = $_GET['rol'];
-          if ($ROL == 1) 
+          if (!isset($_SESSION["correo"])) 
           {
           ?>
           <!doctype html>

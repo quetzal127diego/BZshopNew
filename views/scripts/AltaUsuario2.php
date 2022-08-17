@@ -15,14 +15,7 @@
 
       use MyApp\query\Select;
       use MyApp\data\database;
-      use MyApp\query\Ejecuta;
-      session_start();
-      $ROL = $_GET['rol'];
-      if ($ROL == NULL) 
-      {
-        header("refresh:2 ../../index.php");
-        
-      }   
+      use MyApp\query\Ejecuta;  
       require('../../vendor/autoload.php');
      try
      {

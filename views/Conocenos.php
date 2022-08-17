@@ -76,10 +76,9 @@
       </div>    
 
       <section class="d-flex flex-column justify-content-center align-items-center pt-5  text-center w-50 m-auto" id="intro">
-    <h1 class="p-3 fs-2 border-top border-3"><span class="text-primary">BZshop<span/></h1>
+    <h1 class="p-3 fs-2 border-top border-3"><span class="text-primary">BZshop</span></h1>
      <p class="p-3  fs-4">
-         <span class="text-primary">BZshop</span> Es tu bazar de ropa donde podras encontrar de todo a un precio increible       
-         <
+         <span class="text-primary">BZshop</span> Es tu bazar de ropa donde podras encontrar de todo a un precio increible
         </p>   
     </section>
 

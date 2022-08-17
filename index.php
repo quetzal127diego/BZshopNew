@@ -49,9 +49,6 @@
                   <img src="src/img/LogoBZshopXS.jpg"
                     style="width: 185px;" alt="logo">
                 </div>
-
-           
-      
                 <form action="views/scripts/verificalogin.php" method="post">
                   <p>Escribe tus datos</p>
 

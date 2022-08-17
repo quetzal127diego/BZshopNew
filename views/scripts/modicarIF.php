@@ -2,16 +2,6 @@
 use MyApp\query\Ejecuta;
 use MyApp\data\database;
 
-        session_start();
-        if (!isset($_SESSION["admin"])) 
-        {
-            header("refresh:2 ../alert.php");
-        }    
-        else
-        {
-?>
-<?php
-
 if (!empty($_POST["btnmodifcar"])) 
 {
     if (!empty($_POST["nombre"]) and !empty($_POST["precio"]) and !empty($_POST["exitencia"]) and !empty($_POST["talla"]) and !empty($_POST["color"]))
@@ -53,8 +43,5 @@ if (!empty($_POST["btnmodifcar"]))
     {
         echo "<div class='alert alert-warning'> Campos vacios </div>";   
     }
-}
-?>
-<?php 
 }
 ?>
