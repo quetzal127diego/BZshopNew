@@ -53,7 +53,7 @@
   <?php
 
 use MyApp\Query\Select;
-session_start();
+/* session_start();
 if (!isset($_SESSION["admin"])) 
 {
    echo "<div class='alert alert-warning'> 
@@ -67,7 +67,7 @@ if (!isset($_SESSION["admin"]))
    </div>";
 }
 else
-{
+{ */
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="#">Agregar Productos</a>
@@ -111,7 +111,7 @@ else
                   JOIN orden on orden.usr=usuario.id_usr 
                   JOIN detalle_orden on orden.reg = detalle_orden.orden 
                   JOIN productos ON detalle_orden.producto=productos.cve_prod)AS RV
-                  WHERE RV.PRODUCTO LIKE '%$busqued%'
+                  WHERE RV.PRODUCTO LIKE '%$busqueda%'
                   OR RV.PRECIO LIKE '%$busqueda%'
                   OR RV.FECHA_DE_VENTA LIKE '%$busqueda%'
                   OR RV.No_ORDEN LIKE '%$busqueda%'
@@ -204,7 +204,7 @@ else
                 </div>
             </div>
 <?php
-}
+/* } */
 ?>
                 
               <!-- Bootstrap JavaScript Libraries -->

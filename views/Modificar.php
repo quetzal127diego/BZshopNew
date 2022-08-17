@@ -67,7 +67,7 @@ if (!isset($_SESSION["admin"]))
    </div>";
 }
 else
-{
+{ 
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="#">Modificar Producto</a>
@@ -121,13 +121,13 @@ else
                     OR productos.nombre LIKE '%$busqueda%'
                     OR categoria.nom_cat LIKE '%$busqueda%'
                     OR categoria_prenda.prenda LIKE '%$busqueda%'
-                    OR genero.genero LIKE '%$busqueda%')
-                    ";
+                    OR genero.genero LIKE '%$busqueda%')";
 
                   $tabla = $query->seleccionar($cadena);
 
-                  /* foreach */
-                  echo "<table class='table table-hover align='left'>
+                  foreach 
+                  echo 
+                  "<table class='table table-hover align='left'>
                   <thead class='table-dark'>
                   <tr>
                   <th> ID_Producto</th>
@@ -193,7 +193,7 @@ else
 
                 $tabla = $query->seleccionar($cadena);
 
-                /* foreach */
+                foreach 
                 echo "<table class='table table-hover align='left'>
                 <thead class='table-dark'>
                 <tr>

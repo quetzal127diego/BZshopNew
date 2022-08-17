@@ -101,6 +101,8 @@
                       <li><a class="dropdown-item clr-blanco" href="views/Ventas.php">Registros de Venta</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item clr-blanco" href="views/Clientes.php">Clientes Registrados</a></li>
+                      <li><hr><a class="dropdown-item clr-blanco" href="views/AdminProd.php">Reporte de Ventas</a></li>
+                      <li><hr class="dropdown-divider"></li>
                     </ul>
                   </li>
             
