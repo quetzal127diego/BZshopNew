@@ -12,50 +12,67 @@
   </head>
   <body>
   <?php
-  
-  try
-  {
-    if (isset($_POST["correo"]) && $_POST["contra"])
-    { $correo = $_POST['correo'];
-      $contra = $_POST['contra'];
-        
-     if (!empty($contra) && !empty($correo))
-    {
-        
-    
-     $consulta1="SELECT correo FROM usuario WHERE correo='$correo'";
-     $buscarcorr = $query -> seleccionar($consulta1);
-     $cantCorr= COUNT($buscarcorr);
-    
-     if($cantCorr > 0)
+
+      use MyApp\query\Select;
+      use MyApp\data\database;
+      use MyApp\query\Ejecuta;
+
+      require('../../vendor/autoload.php');
+     try
      {
-       ?>
-         <div class="alert alert-danger" role="alert">
-           El Correo Electronico ya esta en uso intenta con otro
-         </div>
-       <?php
+       if (isset($_POST["correo"]) && $_POST["contra"])
+       { 
+         $correo = $_POST['correo'];
+         $contra = $_POST['contra'];
+           
+        if (!empty($contra) && !empty($correo))
+       {
+           
+        $query = new Select();
+        $consulta1="SELECT correo FROM usuario WHERE correo='$correo'";
+        $buscarcorr = $query->seleccionar($consulta1);
+        $cantCorr= COUNT($buscarcorr);
        
-       header("refresh:3; ../FormRegistroP1.php");
-     }
-      else 
-      {
-       
-     $hash=password_hash($contra,PASSWORD_DEFAULT);
-     $insertuser="INSERT INTO usuario(correo,contraseña,persona,rol) VALUES
-     ('$correo','$hash','$id_per',1)";
-     $insert->ejecuta($insertuser);
-      echo "<div class='alert alert-success' align='center' role='alert'>Usuario registrado correctamente!</div>";
-     header("refresh:3; ../FormLogin.php"); 
-      }}
-    }
-   
-  } 
-  
-  catch(PDOException $e)
-  {
-    echo "<div class='alert alert-danger' align='center' role='alert'>". $e->getMessage() . "</div>";
-  }
+        if($cantCorr > 0)
+        {
+          ?>
+            <div class="alert alert-danger" role="alert">
+              El Correo Electronico ya esta en uso intenta con otro
+            </div>
+          <?php
+          
+          header("refresh:3; ../FormRegistroP1.php");
+        }
+         else 
+         {
+
+          $insert = new Ejecuta();
+          
+          extract($_POST);
+          $id = $_POST['id'];
+          $rolayuda = 1;
+          $hash=password_hash($contra, PASSWORD_DEFAULT);
+     
+          $insertuser = "INSERT INTO `usuario` (`correo`, `contrasena`, `persona`, `rol`) 
+          VALUES ('$correo', '$hash', '$id', '$rolayuda')";
+     
+          $insert->ejecuta($insertuser);
+
+          echo "<div class='alert alert-success' align='center' role='alert'>Usuario registrado correctamente!</div>";
+          header("refresh:3; ../FormLogin.php"); 
+         }}
+       }
+      
+     } 
+     
+     catch(PDOException $e)
+     {
+       echo "<div class='alert alert-danger' align='center' role='alert'>". $e->getMessage() . "</div>";
+     }   
 ?>
+    
+
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 

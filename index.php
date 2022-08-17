@@ -18,12 +18,7 @@
     
 	body
     {
-		background-color:background: #808080;
-        background: -moz-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
-        background: -webkit-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
-        background: linear-gradient(to bottom, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);;
-		background-size: 100vw 100vh;
-		background-repeat: no-repeat;
+		background-image: url('src/img/diagonal_striped_brick.png');
 	}
     
 	.cont-menu{
@@ -69,7 +64,7 @@
         </li>
         <!-- botones del user-->
         <li class='nav-item'>
-          <a class='nav-link active' aria-current='page' href='/views/FormLogin.php'>Login</a>
+          <a class='nav-link active' aria-current='page' href='views/FormLogin.php'>Login</a>
           </li>
         <?php 
               use MyApp\Query\Select;
@@ -119,7 +114,7 @@
 $query = new Select();
 
 $cadena = "SELECT imagen,nombre,precio,exitencia,prenda FROM productos JOIN categoria_prenda on 
-productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0";
+productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0 OR categoria_prenda LIKE '$buscador'";
 
 $card = $query->seleccionar($cadena);
 ?>
@@ -139,9 +134,9 @@ foreach ($card as $registros){
 </figure>
 <div class="contenido-card">
 <h3><?php echo $registros->nombre?></h3>
-<p><?php echo $registros->precio?></p>
-<p><?php echo $registros->exitencia?></p>
-<p><?php echo $registros->prenda?></p>
+<p><?php echo "$". $registros->precio?></p>
+<p><?php echo "Existencia: " . $registros->exitencia?></p>
+<p><?php echo "Categoria: " .  $registros->prenda?></p>
 <a href="#">Ver Producto</a>
 <a href="#">Agregar al carrito</a>
 </div>
