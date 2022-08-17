@@ -50,36 +50,15 @@
     </style>
   </head>
   <body>
-  <?php
-
-use MyApp\Query\Select;
-session_start();
-if (!isset($_SESSION["admin"])) 
-{
-   echo "<div class='alert alert-warning'> 
-   <h2 align='center'> No eres admin, usuario:".$_SESSION["usuario"]."</h2>";
-
-   echo "<h3 algin='center'>
-   <a href='scripts/cerrar.php'>[Cerrar Sesion]</a></h3>
-   </div>";
-   echo "<h3 algin='center'>
-   <a href='../indix.php'>[Inicio]</a></h3>
-   </div>";
-}
-else
-{
-?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
-              <a class="nav-link disabled" href="#">Agregar Productos</a>
-              <a class="nav-link clr-blanco" href="AdminProd.php">Regresar</a>
-              <a class="nav-link clr-blanco" href="../index.php">Inicio</a>
+              <a class="nav-link clr-blanco" href="">Regresar</a>
               
             </nav>
 
             <!-- Tabla select -->
 
               <div class="md-6">              
-                <h1 align="center">Productos actuales</h1>
+                <h1 align="center">Clientes actuales</h1>
                 <br>
               </div>
               <form class="d-flex">
@@ -88,6 +67,8 @@ else
                 <button class="btn btn-outline-success" name="enviar" type="submit">Buscar</button>
               </form>
               <?php
+                use MyApp\Query\Select;
+                use MyApp\data\database;
 
                 if (isset($_GET['enviar'])) 
                 {
@@ -97,19 +78,24 @@ else
                   
                   $query = new Select();
 
-                  $cadena = "SELECT * FROM usuario
-                  INNER JOIN rol ON usuario.rol = rol.cve_rol
-                  INNER JOIN persona ON persona.id_persona = usuario.persona
-                  WHERE usuario.id_usr LIKE '%$busqueda%' 
-                  WHERE usuario.correo LIKE '%$busqueda%'
-                  WHERE usuario.contrasena LIKE '%$busqueda%'
-                  WHERE persona.nombre LIKE '%$busqueda%'
-                  WHERE persona.apellido LIKE '%$busqueda%'
-                  WHERE persona.tel_celular LIKE '%$busqueda%'
-                  WHERE rol.rol LIKE '%$busqueda%'
+                  $cadenaB = "SELECT usuario.id_usr,
+                  usuario.correo,
+                  usuario.contrasena,
+                  persona.nombre,
+                  persona.apellidos,
+                  persona.tel_celular,
+                  rol.rol
+                  FROM usuario INNER JOIN persona ON usuario.persona = persona.id_persona
+                  INNER JOIN rol ON usuario.rol = rol.cve_rol WHERE usuario.id_usr LIKE '%$busqueda%'
+                  OR usuario.correo LIKE '%$busqueda%'
+                  OR usuario.contrasena LIKE '%$busqueda%'
+                  OR persona.nombre LIKE '%$busqueda%'
+                  OR persona.apellidos LIKE '%$busqueda%'
+                  OR persona.tel_celular LIKE '%$busqueda%'
+                  OR rol.rol LIKE '%$busqueda%'
                   ";
 
-                  $tabla = $query->seleccionar($cadena);
+                  $tabla = $query->seleccionar($cadenaB);
 
                   /* foreach */
                   echo "<table class='table table-hover align='left'>
@@ -131,11 +117,10 @@ else
                     
                     echo "<tr>";
                     echo "<td> $registros->id_usr</td>";
-                    echo "<td><img src='<?=views/scripts/$registros->imagen?>'></td>";
                     echo "<td> $registros->correo </td>";
                     echo "<td> $registros->contrasena </td>";
                     echo "<td> $registros->nombre </td>";
-                    echo "<td> $registros->apellido </td>";
+                    echo "<td> $registros->apellidos </td>";
                     echo "<td> $registros->tel_celular </td>";
                     echo "<td> $registros->rol </td>";
                   echo "</td>
@@ -178,11 +163,10 @@ else
                     
                     echo "<tr>";
                     echo "<td> $registros->id_usr</td>";
-                    echo "<td><img src='<?=views/scripts/$registros->imagen?>'></td>";
                     echo "<td> $registros->correo </td>";
                     echo "<td> $registros->contrasena </td>";
                     echo "<td> $registros->nombre </td>";
-                    echo "<td> $registros->apellido </td>";
+                    echo "<td> $registros->apellidos </td>";
                     echo "<td> $registros->tel_celular </td>";
                     echo "<td> $registros->rol </td>";
                   echo "</td>
@@ -196,9 +180,6 @@ else
                 ?>              
                 </div>
             </div>
-<?php
-}
-?>
                 
               <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

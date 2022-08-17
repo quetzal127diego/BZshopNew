@@ -5,16 +5,8 @@ use MyApp\data\database;
         session_start();
         if (!isset($_SESSION["admin"])) 
         {
-           echo "<div class='alert alert-warning'> 
-           <h2 align='center'> No eres admin, usuario:".$_SESSION["usuario"]."</h2>";
-
-           echo "<h3 algin='center'>
-           <a href='cerrar.php'>[Cerrar Sesion]</a></h3>
-           </div>";
-           echo "<h3 algin='center'>
-           <a href='../indix.php'>[Inicio]</a></h3>
-           </div>";
-        }
+            header("refresh:2 ../alert.php");
+        }    
         else
         {
 ?>

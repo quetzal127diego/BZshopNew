@@ -14,22 +14,14 @@
   <body>
   <?php
   use MyApp\Query\Ejecuta;
-        session_start();
-        if (!isset($_SESSION["admin"])) 
-        {
-           echo "<div class='alert alert-warning'> 
-           <h2 align='center'> No eres admin, usuario:".$_SESSION["usuario"]."</h2>";
-
-           echo "<h3 algin='center'>
-           <a href='cerrar.php'>[Cerrar Sesion]</a></h3>
-           </div>";
-           echo "<h3 algin='center'>
-           <a href='../indix.php'>[Inicio]</a></h3>
-           </div>";
-        }
-        else
-        {
-        ?>
+  session_start();
+  $ROL = $_GET['rol'];
+  if ($ROL == NULL) 
+  {
+    header("refresh:2 ../../index.php");
+    
+  }
+  ?>
   <?php 
     
     require("../../vendor/autoload.php");
@@ -50,9 +42,6 @@
 
     echo "<div class='alert alert-success'>Producto Registrado</div>";
     header("refresh:3; ../AdminProd.php");
-?>
-<?php
-}
 ?>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

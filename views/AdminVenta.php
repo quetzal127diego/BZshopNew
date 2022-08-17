@@ -51,27 +51,16 @@
   <body>
   <?php
 
-<<<<<<< HEAD
-/* session_start();
-if (!isset($_SESSION["admin"])) 
-=======
 session_start();
 $ROL = $_GET['rol'];
 if ($ROL == 1) 
->>>>>>> b1f9b05abe644f2745728c647a7605657070f773
 {
     header("refresh:2 alert.php");
   
 }
-<<<<<<< HEAD
-else
-{ */
-=======
 else if ($ROL == 0)
 {
->>>>>>> b1f9b05abe644f2745728c647a7605657070f773
 ?>
-
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="">Administrar Productos</a>
               <a class='nav-link clr-blanco' href='indice.php'>Inicio</a>
@@ -81,32 +70,12 @@ else if ($ROL == 0)
             <div class="list-group ">
                 <br><br>
                 <hr>
-                <?php
-                echo "<a href='../views/AgregarProductos.php?rol=$ROL' class='list-group-item list-group-item-action flex-column align-items-start'>";
-                ?>
+                <a href='../views/Ventas.php' class='list-group-item list-group-item-action flex-column align-items-start'>
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Añadir productos</h5>
+                        <h5 class="mb-1">Ver Ventas</h5>
                         <small><img src="../src/paginaimg/moda.png" alt="" width="20px"></small>
                     </div>
-                    <p class="mb-1">Click aqui para añadir productos a la tienda</p>
-                    <small></small>
-                </a>
-                <?php
-                echo "<a href='Modificar.php?rol=$ROL' class='list-group-item list-group-item-action flex-column align-items-start'>";
-                ?>
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Modificar Productos</h5>
-                        <small><img src="../src/paginaimg/editar.png" alt="" width="20px"></small>
-                    </div>
-                    <p class="mb-1">Click aqui para modificar productos ya existentes en la tienda</p>
-                    <small></small>
-                </a>
-                <a href="Registros.php" class="list-group-item list-group-item-action flex-column align-items-start ">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Ver Reporte de Ventas</h5>
-                        <small><img src="../src/paginaimg/editar.png" alt="" width="20px"></small>
-                    </div>
-                    <p class="mb-1">Click aqui para ver todas las ventas realizadas</p>
+                    <p class="mb-1">Click aqui para ver ventas</p>
                     <small></small>
                 </a>
             
@@ -119,9 +88,8 @@ else if ($ROL == 0)
     
 
     <?php
-/*         }
- */    ?>
-    
+        }
+    ?>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 

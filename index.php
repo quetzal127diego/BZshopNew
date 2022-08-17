@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>BZshop</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="views\cards.css">
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
@@ -15,76 +15,42 @@
 		box-sizing: border-box;
 		font-family: 'Montserrat Alternates', sans-serif;
 	}
-    
-	body
+    body
     {
-		background-image: url('src/img/diagonal_striped_brick.png');
+		background-color:background: #808080;
+        background: -moz-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
+        background: -webkit-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
+        background: linear-gradient(to bottom, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);;
+		background-size: 100vw 100vh;
+		background-repeat: no-repeat;
 	}
-    
-	.cont-menu{
-		width: 100%;
-		max-width: 250px;
-		background: #FFF383;
-	}
-    .clr-blanco
+    .fondo
     {
-        color:white;
+        background-color:background: #808080;
+        background: -moz-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
+        background: -webkit-linear-gradient(top, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);
+        background: linear-gradient(to bottom, #808080 0%, #B3B3B3 50%, #C5C5C5 100%);;
+		background-size: 100vw 100vh;
+		background-repeat: no-repeat;
     }
-    .quitar-borde
-    {
-        border: none !important;
-    }
-    .borde 
-    {
-        border:solid;
-        border-color: white;
-    }
-    .opciones
-    {
-        margin-top: 2px;
-
-    }
-
-    /*Cards*/
-    
-   
     </style>
   </head>
-  <body>
-  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">BZ shop</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
-        </li>
-        <!-- botones del user-->
-        <li class='nav-item'>
-          <a class='nav-link active' aria-current='page' href='views/FormLogin.php'>Login</a>
-          </li>
-        <?php 
-              use MyApp\Query\Select;
-              require("vendor/autoload.php");
-              $queryS=new Select();
-              $cadena="SELECT categoria_prenda.cve_pcat,categoria_prenda.prenda from categoria_prenda";
-              $reg=$queryS->seleccionar($cadena);
-              
-              echo "  
-              <select name='categoria_prenda' class='nav-item dropdown bg-dark form-select clr-blanco quitar-borde'>
-              <option selected>Categorias</option>";
+  <body class="fondo">
+<section class="h-100 gradient-form fondo" style="background-color: #eee; ">
+  <div class="container py-5 h-100 fondo ">
+    <div class="row d-flex justify-content-center align-items-center h-100 fondo">
+      <div class="col-xl-10 fondo">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
 
-              foreach($reg as $value)
-              {
-                echo "<option class='dropdown-item' value='".$value->cve_pcat."'>".$value->prenda."</option> ";
-                $like = $value->prenda;
-              }
-              echo "</select>";
-            ?>
+                <div class="text-center">
+                  <img src="src/img/LogoBZshopXS.jpg"
+                    style="width: 185px;" alt="logo">
+                </div>
 
+<<<<<<< HEAD
             <!-- botones del admin-->
             <li class='nav-item dropdown'> 
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -106,47 +72,49 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary" type="submit">Buscar</button>
       </form>
+=======
+                <form action="views/scripts/verificalogin.php" method="post">
+                  <p>Escribe tus datos</p>
+
+                  <div class="form-outline mb-4">
+                    <input type="email" id="form2Example11" name="correo" class="form-control"
+                      placeholder="Escribe tu correo"/>
+                    <label class="form-label" for="form2Example11">Correo</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form2Example22" name="contrasena" class="form-control" placeholder="Escribe tu contraseña" />
+                    <label class="form-label" for="form2Example22">Contraseña</label>
+                  </div>
+
+                  <div class="text-center pt-1 mb-5 pb-1">
+                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Iniciar Sesion</button>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-center pb-4">
+                    <p class="mb-0 me-2">¿Aun no tienes una cuenta?</p>
+                    <a href="views/FormRegistroP1.php">
+                    <button type="button" class="btn btn-outline-danger">Registrate aqui!</button>
+                    </a>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4" style="color:black; font-size:20px; align:center;">Bazar de ropa para adulto o infantil</h4>
+                <p class="small mb-0"> <img src="src/img/FotoLogin.jpg" alt="" width="100%" height="50%"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+>>>>>>> b1f9b05abe644f2745728c647a7605657070f773
     </div>
   </div>
-</nav>
-
-<?php
-$query = new Select();
-
-$cadena = "SELECT imagen,nombre,precio,exitencia,prenda FROM productos JOIN categoria_prenda on 
-productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0 OR categoria_prenda LIKE '$buscador'";
-
-$card = $query->seleccionar($cadena);
-?>
-
-<div class="title-cards">
-<h2 class="titulo">Algunos de Nuestros Productos</h2>
-</div>
-
-<div class="row">
-<?php
-foreach ($card as $registros){
-?>
-<div class="container-card col-lg-4">
-<div class="card card_t">
-<figure class='sizeimg'>
-<?php echo "<img src='views/scripts/$registros->imagen'>";?>
-</figure>
-<div class="contenido-card">
-<h3><?php echo $registros->nombre?></h3>
-<p><?php echo "$". $registros->precio?></p>
-<p><?php echo "Existencia: " . $registros->exitencia?></p>
-<p><?php echo "Categoria: " .  $registros->prenda?></p>
-<a href="#">Ver Producto</a>
-<a href="#">Agregar al carrito</a>
-</div>
-</div>
-</div>
-<?php
-}
-?>
-
-<!-- inicio del usuario-->
+</section>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
