@@ -71,7 +71,6 @@ use MyApp\Query\Select;
 </div>
   </nav>
 
-
     <?php
    session_start();
    if (!isset($_SESSION["correo"])) 
