@@ -73,8 +73,9 @@ use MyApp\Query\Select;
 
 
     <?php
-    if (isset($_SESSION))
-        $producto=$_GET["id"];
+   session_start();
+   if (!isset($_SESSION["correo"])) 
+   {
     ?>
 <div class="row">
 <?php
@@ -122,6 +123,9 @@ $categoria = $registros[0]->nom_cat;
     </table>
         <button type="submit" class="btn btn-primary">Solicitar Prenda</button>
 </div>
+<?php
+   }
+?>
     
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

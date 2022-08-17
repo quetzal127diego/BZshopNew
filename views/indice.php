@@ -61,14 +61,11 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="">Inicio</a>
-<<<<<<< HEAD
+
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="Conocenos.php">Conocenos</a>
         </li>
-=======
-       
->>>>>>> origin/main
         <!-- botones del user-->
         <?php
           session_start();
