@@ -51,7 +51,7 @@
   <body>
   <?php
 
-session_start();
+/* session_start();
 if (!isset($_SESSION["admin"])) 
 {
    echo "<div class='alert alert-warning'> 
@@ -65,8 +65,9 @@ if (!isset($_SESSION["admin"]))
    </div>";
 }
 else
-{
+{ */
 ?>
+
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="#">Administrar Productos</a>
               <a class="nav-link clr-blanco" href="../index.php">Inicio</a>
@@ -92,6 +93,14 @@ else
                     <p class="mb-1">Click aqui para modificar productos ya existentes en la tienda</p>
                     <small></small>
                 </a>
+                <a href="Registros.php" class="list-group-item list-group-item-action flex-column align-items-start ">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Ver Reporte de Ventas</h5>
+                        <small><img src="../src/paginaimg/editar.png" alt="" width="20px"></small>
+                    </div>
+                    <p class="mb-1">Click aqui para ver todas las ventas realizadas</p>
+                    <small></small>
+                </a>
             
             </div>
             <hr>
@@ -102,8 +111,9 @@ else
     
 
     <?php
-        }
-    ?>
+/*         }
+ */    ?>
+    
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 
