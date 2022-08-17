@@ -21,7 +21,6 @@
             extract($_POST);
 
             $usuarios->verificalogin("$correo","$contrasena");
-
         ?>
     </div>
 </body>

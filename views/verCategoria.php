@@ -1,4 +1,13 @@
-<!doctype html>
+<?php
+    $cat = $_GET['categoria'];
+?>
+<?php
+          session_start();
+          $ROL = $_GET['rol'];
+          if ($ROL == 1) 
+          {
+          ?>
+          <!doctype html>
 <html lang="en">
   <head>
     <title>BZshop</title>
@@ -60,30 +69,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Inicio</a>
-<<<<<<< HEAD
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Conocenos.php">Conocenos</a>
-        </li>
-=======
+          <a class="nav-link active" aria-current="page" href="indice.php?rol=<?=$ROL?>">Inicio</a>
        
->>>>>>> origin/main
         <!-- botones del user-->
+        
         <?php
-          session_start();
-          $ROL = $_GET['rol'];
-          if (!$ROL == 1) 
-          {
-          ?>
-        <?php
-          }
-          else
-          {?>
-            <li class='nav-item'>
-            <a class='nav-link active' aria-current='page' href='scripts/cerrar.php'>Cerrar</a>
-            </li>
-          <?php
           }
         ?>
         <?php 
@@ -109,7 +99,7 @@
               echo "</ul>";
               echo "</li> ";
             ?>
-            <?php 
+            <?php
                 if ($ROL == 0) 
                 {
             
@@ -118,11 +108,11 @@
                     Administrar
                     </a> 
                     <ul class='dropdown-menu bg-dark ' aria-labelledby='navbarDropdown'>
-                    <li><a class='dropdown-item clr-blanco' href='AdminProd.php'>Administrar Productos</a></li>
+                    <li><a class='dropdown-item clr-blanco' href='AdminProd.php?rol=$ROL'>Administrar Productos</a></li>
                       <li><hr class='dropdown-divider'></li>
-                      <li><a class='dropdown-item clr-blanco' href='AdminVenta.php'>Registros de Venta</a></li>
+                      <li><a class='dropdown-item clr-blanco' href='AdminVenta.php?rol=$ROL'>Registros de Venta</a></li>
                       <li><hr class='dropdown-divider'></li>
-                      <li><a class='dropdown-item clr-blanco' href='AdminClientes.php'>Clientes Registrados</a></li>
+                      <li><a class='dropdown-item clr-blanco' href='AdminClientes.php?rol=$ROL'>Clientes Registrados</a></li>
                     </ul>";
              echo "</li> ";
                 }
@@ -140,7 +130,7 @@
 $query = new Select();
 
 $cadena = "SELECT cve_prod,imagen,nombre,precio,exitencia,prenda FROM productos JOIN categoria_prenda on 
-productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0";
+productos.categoria_prenda= categoria_prenda.cve_pcat where exitencia>0 and categoria_prenda.cve_pcat=$cat";
 
 $card = $query->seleccionar($cadena);
 ?>
@@ -163,7 +153,7 @@ foreach ($card as $registros){
 <p><?php echo "$". $registros->precio?></p>
 <p><?php echo "Existencia: " . $registros->exitencia?></p>
 <p><?php echo "Categoria: " .  $registros->prenda?></p>
-<a href="Producto.php?id=<?php echo $registros->cve_prod?>">Ver Producto</a>
+<a href="Producto.php?id=<?php echo $registros->cve_prod?>&rol=<?=$ROL?>">Ver Producto</a>
 </div>
 </div>
 </div>

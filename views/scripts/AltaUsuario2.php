@@ -58,7 +58,7 @@
           $insert->ejecuta($insertuser);
 
           echo "<div class='alert alert-success' align='center' role='alert'>Usuario registrado correctamente!</div>";
-          header("refresh:3; ../FormLogin.php"); 
+          header("refresh:3; ../../index.php"); 
          }}
        }
       
