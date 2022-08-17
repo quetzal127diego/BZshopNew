@@ -63,31 +63,21 @@ else if ($ROL == 0)
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="">Administrar Productos</a>
-              <a class='nav-link clr-blanco' href='indice.php'>Inicio</a>
+              <?php
+                echo "<a class='nav-link clr-blanco' href='indice.php?rol=$ROL'>Inicio</a>";
+              ?>
             </nav>
     <div class="container ">
             <h4></h4>
             <div class="list-group ">
                 <br><br>
                 <hr>
-                <?php
-                echo "<a href='../views/AgregarProductos.php?rol=$ROL' class='list-group-item list-group-item-action flex-column align-items-start'>";
-                ?>
+                <a href='Clientes.php' class='list-group-item list-group-item-action flex-column align-items-start'>
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Añadir productos</h5>
+                        <h5 class="mb-1">Ver Clientes</h5>
                         <small><img src="../src/paginaimg/moda.png" alt="" width="20px"></small>
                     </div>
-                    <p class="mb-1">Click aqui para añadir productos a la tienda</p>
-                    <small></small>
-                </a>
-                <?php
-                echo "<a href='Modificar.php?rol=$ROL' class='list-group-item list-group-item-action flex-column align-items-start'>";
-                ?>
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Modificar Productos</h5>
-                        <small><img src="../src/paginaimg/editar.png" alt="" width="20px"></small>
-                    </div>
-                    <p class="mb-1">Click aqui para modificar productos ya existentes en la tienda</p>
+                    <p class="mb-1">Click aqui para ver clientes</p>
                     <small></small>
                 </a>
             

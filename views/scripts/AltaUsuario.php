@@ -25,6 +25,13 @@
     $apellidos=$_POST['apellidos'];
     $numero = $_POST['numero'];
 
+    session_start();
+$ROL = $_GET['rol'];
+if ($ROL == NULL) 
+{
+    header("refresh:2 ../../index.php");
+  
+}
 
     /*Insersion de datos del formulario paso 1*/
     try 
@@ -72,7 +79,6 @@
         echo "<div class='alert alert-danger' role='alert' style='text-align: center;'><strong>Error: Algo salio mal: " . $e->getMessage() ."</strong></div>";
         echo "<a href='../FormRegistroP1.php> Intentalo de nuevo</a>";
     }
-
 
 
    

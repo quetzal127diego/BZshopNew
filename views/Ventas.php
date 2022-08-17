@@ -53,27 +53,9 @@
   <?php
 
 use MyApp\Query\Select;
-session_start();
-if (!isset($_SESSION["admin"])) 
-{
-   echo "<div class='alert alert-warning'> 
-   <h2 align='center'> No eres admin, usuario:".$_SESSION["usuario"]."</h2>";
-
-   echo "<h3 algin='center'>
-   <a href='scripts/cerrar.php'>[Cerrar Sesion]</a></h3>
-   </div>";
-   echo "<h3 algin='center'>
-   <a href='../index.php'>[Inicio]</a></h3>
-   </div>";
-}
-else
-{
 ?>
             <nav class="nav justify-content-center navbar-dark bg-dark ">
               <a class="nav-link disabled" href="#">Agregar Productos</a>
-              <a class="nav-link clr-blanco" href="AdminProd.php">Regresar</a>
-              <a class="nav-link clr-blanco" href="../index.php">Inicio</a>
-              
             </nav>
 
             <!-- Tabla select -->
@@ -203,9 +185,6 @@ else
                 ?>              
                 </div>
             </div>
-<?php
-}
-?>
                 
               <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
