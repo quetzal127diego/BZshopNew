@@ -71,7 +71,6 @@ use MyApp\Query\Select;
 </div>
   </nav>
 
-
     <?php
     if (isset($_SESSION))
         $producto=$_GET["id"];
