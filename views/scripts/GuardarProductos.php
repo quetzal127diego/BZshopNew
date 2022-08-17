@@ -14,9 +14,12 @@
   <body>
   <?php
   use MyApp\Query\Ejecuta;
+<<<<<<< HEAD
   session_start();
   if (isset($_SESSION["correo"])) 
   {
+=======
+>>>>>>> 96767f6e2358b8e4a360641ca4cd8325ce3bbde2
   ?>
   <?php 
     
@@ -38,7 +41,6 @@
 
     echo "<div class='alert alert-success'>Producto Registrado</div>";
     header("refresh:3; ../AdminProd.php");
-  }
 ?>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

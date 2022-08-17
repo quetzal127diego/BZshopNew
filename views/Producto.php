@@ -76,6 +76,9 @@ use MyApp\Query\Select;
    session_start();
    if (isset($_SESSION["correo"])) 
    {
+    extract($_POST);
+    $producto = $_GET['id'];
+    $correo = $_SESSION["correo"];
     ?>
 <div class="row">
 <?php
@@ -121,7 +124,11 @@ $categoria = $registros[0]->nom_cat;
             </tr>
         </tbody>
     </table>
-        <button type="submit" class="btn btn-primary">Solicitar Prenda</button>
+
+    <form action="scripts/orden.php" method="POST" enctype="multipart/form-data">
+        <input type='hidden' name='nombre' value='<?php echo $correo?>'>
+        <button type="submit" class="btn btn-primary" name="" value="guardar">Comprar</button>
+   </form>
 </div>
 <?php
    }
